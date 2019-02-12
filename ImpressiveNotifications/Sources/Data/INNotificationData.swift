@@ -15,7 +15,7 @@ public struct INNotificationData {
     let delay: TimeInterval
     let completionHandler: (() -> Void)?
     
-    init(title: String = "", description: String? = nil, image: UIImage? = nil, delay: TimeInterval = 10.0, completionHandler: (() -> Void)? = nil) {
+    public init(title: String = "", description: String? = nil, image: UIImage? = nil, delay: TimeInterval = 10.0, completionHandler: (() -> Void)? = nil) {
         self.title = title
         self.description = description
         self.image = image
