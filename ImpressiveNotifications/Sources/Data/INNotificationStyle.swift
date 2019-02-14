@@ -15,7 +15,7 @@ public struct INNotificationStyle {
     let descriptionColor: UIColor?
     let imageSize: CGSize?
     
-    init(cornerRadius: CGFloat? = nil,
+    public init(cornerRadius: CGFloat? = nil,
          backgroundColor: UIColor? = nil,
          titleColor: UIColor? = nil,
          descriptionColor: UIColor? = nil,
