@@ -19,6 +19,13 @@ To install just write into your Cartfile:
 github "impresyjna/ImpressiveNotifications"
 ```
 
+**ImpressiveNotifications** is also available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'ImpressiveNotifications', :git => 'https://github.com/impresyjna/ImpressiveNotifications', :branch => 'master'
+```
+
 ## Usage
 Call ``INNotifications.show`` with a type, data structure and customStyle if you want. Only type is necessary. 
 
