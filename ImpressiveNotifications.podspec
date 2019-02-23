@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ImpressiveNotifications"
-  spec.version      = "0.0.1"
+  spec.version      = "0.4.0"
   spec.summary      = " ImpressiveNotifications are custom in-app notifications with 3 types of layouts."
 
   spec.description  = <<-DESC
@@ -75,7 +75,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/impresyjna/ImpressiveNotifications", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/impresyjna/ImpressiveNotifications.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
