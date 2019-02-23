@@ -23,7 +23,7 @@ github "impresyjna/ImpressiveNotifications"
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ImpressiveNotifications', :git => 'https://github.com/impresyjna/ImpressiveNotifications', :branch => 'master'
+pod 'ImpressiveNotifications'
 ```
 
 ## Usage
