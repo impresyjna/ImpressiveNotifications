@@ -1,5 +1,6 @@
 <img src="Resources/Banner.jpg" alt="Gallery Banner" align="center" />
 
+![Version](https://img.shields.io/badge/pod-0.5.0-blue.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/badge/licence-GPL--3.0-informational.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
@@ -17,6 +18,14 @@ To install just write into your Cartfile:
 ```ruby
 github "impresyjna/ImpressiveNotifications"
 ```
+
+**ImpressiveNotifications** is also available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'ImpressiveNotifications'
+```
+
 
 ## Usage
 Call ``INNotifications.show`` with a type, data structure and customStyle if you want. Only type is necessary. 
