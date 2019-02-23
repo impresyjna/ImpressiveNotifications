@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  
+
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "ImpressiveNotifications"
   spec.version      = "0.5.0"
@@ -11,9 +11,8 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }
   spec.source       = {
     :git => "https://github.com/impresyjna/ImpressiveNotifications.git",
-    :tag => spec.version.to_s
+    :tag => "#{spec.version}"
   }
-  spec.swift_version = "4.2"
 
   spec.source_files  = "ImpressiveNotifications/Sources/**/*.swift"
 end
