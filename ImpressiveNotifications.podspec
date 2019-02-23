@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ImpressiveNotifications"
-  spec.version      = "0.4.0"
+  spec.version      = "0.5.0"
   spec.summary      = " ImpressiveNotifications are custom in-app notifications with 3 types of layouts."
 
   spec.description  = <<-DESC
