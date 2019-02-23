@@ -1,4 +1,6 @@
 Pod::Spec.new do |spec|
+  
+  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "ImpressiveNotifications"
   spec.version      = "0.5.0"
   spec.summary      = "ImpressiveNotifications are custom in-app notifications with 3 types of layouts."
@@ -6,11 +8,12 @@ Pod::Spec.new do |spec|
   spec.license      = "GPL-3.0"
   spec.author             = { "Asia Kasprzycka" => "impresyjna@gmail.com" }
   spec.ios.deployment_target = '11.0'
-  spec.swift_version = "4.2"
-  spec.source       = { 
-    :git => "https://github.com/impresyjna/ImpressiveNotifications.git", 
-    :tag => spec.version.to_s 
+  spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }
+  spec.source       = {
+    :git => "https://github.com/impresyjna/ImpressiveNotifications.git",
+    :tag => spec.version.to_s
   }
+  spec.swift_version = "4.2"
 
   spec.source_files  = "ImpressiveNotifications/Sources/**/*.swift"
 end
