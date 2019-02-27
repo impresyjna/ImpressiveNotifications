@@ -10,7 +10,7 @@ import UIKit
 
 public class INNotifications {
     
-    static public func show(type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil, position: INNotificationPosition? = nil) {
+    static public func show(type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil, position: INNotificationPosition = .top) {
         let notificationView = INNotification(with: data ?? INNotificationData(), type: type, customStyle: customStyle)
         
         guard let window = UIApplication.shared.keyWindow else {
