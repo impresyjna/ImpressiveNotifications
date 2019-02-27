@@ -10,7 +10,7 @@ import UIKit
 
 public class INNotifications {
     
-    static public func show(type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil) {
+    static public func show(type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil, position: INNotificationPosition? = nil) {
         let notificationView = INNotification(with: data ?? INNotificationData(), type: type, customStyle: customStyle)
         
         guard let window = UIApplication.shared.keyWindow else {
@@ -21,11 +21,19 @@ public class INNotifications {
         notificationView.translatesAutoresizingMaskIntoConstraints = false
         window.addSubview(notificationView)
         
-        let constraints = [
-            NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: window, attribute: .topMargin, multiplier: 1.0, constant: 16.0),
+        var constraints = [
             NSLayoutConstraint(item: notificationView , attribute: .leading, relatedBy: .equal, toItem: window, attribute: .leadingMargin, multiplier: 1.0, constant: 16.0),
             NSLayoutConstraint(item: notificationView , attribute: .trailing, relatedBy: .equal, toItem: window, attribute: .trailingMargin, multiplier: 1.0, constant: -16.0)
         ]
+        
+        if let position = position {
+            if position == .top {
+                constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: window, attribute: .topMargin, multiplier: 1.0, constant: 16.0))
+            } else if position == .bottom {
+                constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: window, attribute: .bottomMargin, multiplier: 1.0, constant: 16.0))
+            }
+        }
+        
         NSLayoutConstraint.activate(constraints)
         notificationView.showNotification()
     }
