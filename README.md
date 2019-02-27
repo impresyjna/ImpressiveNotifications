@@ -92,3 +92,12 @@ let vc = storyboard.instantiateViewController(withIdentifier: "CustomViewControl
 
 INNotifications.show(type: .custom(vc.view))
 ```
+
+### Position
+``INNotificationPosition`` is enum for setup position of notification (top or bottom).
+
+Example:
+
+```swift
+INNotifications.show(type: .danger, data: INNotificationData(title: "Error", description: "Error notification"), position: .bottom)
+```
