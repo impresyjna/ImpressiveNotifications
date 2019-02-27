@@ -27,9 +27,10 @@ public class INNotifications {
         ]
         
         if let position = position {
-            if position == .top {
+            switch position {
+            case .top:
                 constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: window, attribute: .topMargin, multiplier: 1.0, constant: 16.0))
-            } else if position == .bottom {
+            case .bottom:
                 constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: window, attribute: .bottomMargin, multiplier: 1.0, constant: 16.0))
             }
         }
