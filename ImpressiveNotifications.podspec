@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "ImpressiveNotifications"
-  spec.version      = "0.5.0"
+  spec.version      = "0.6.0"
   spec.summary      = "ImpressiveNotifications are custom in-app notifications with 3 types of layouts."
   spec.homepage     = "https://github.com/impresyjna/ImpressiveNotifications"
   spec.license      = "GPL-3.0"
