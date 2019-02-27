@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17ABEB662226A65E006C6C28 /* INNotificationPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ABEB652226A65E006C6C28 /* INNotificationPosition.swift */; };
 		CD4740882212204800DE2B05 /* ImpressiveNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = CD4740862212204800DE2B05 /* ImpressiveNotifications.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD47408F2212208E00DE2B05 /* INNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD47408E2212208E00DE2B05 /* INNotification.swift */; };
 		CD474091221220BC00DE2B05 /* INNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD474090221220BC00DE2B05 /* INNotifications.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17ABEB652226A65E006C6C28 /* INNotificationPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INNotificationPosition.swift; sourceTree = "<group>"; };
 		CD4740832212204800DE2B05 /* ImpressiveNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImpressiveNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4740862212204800DE2B05 /* ImpressiveNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImpressiveNotifications.h; sourceTree = "<group>"; };
 		CD4740872212204800DE2B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				CD47408E2212208E00DE2B05 /* INNotification.swift */,
 				CD474090221220BC00DE2B05 /* INNotifications.swift */,
 				CD474092221220F500DE2B05 /* INNotificationType.swift */,
+				17ABEB652226A65E006C6C28 /* INNotificationPosition.swift */,
 				CD4740962212213600DE2B05 /* Extensions */,
 			);
 			path = Sources;
@@ -178,6 +181,7 @@
 				CD4740952212212900DE2B05 /* String+UIImage.swift in Sources */,
 				CD47409A2212216A00DE2B05 /* INNotificationStyle.swift in Sources */,
 				CD474091221220BC00DE2B05 /* INNotifications.swift in Sources */,
+				17ABEB662226A65E006C6C28 /* INNotificationPosition.swift in Sources */,
 				CD47409C2212218100DE2B05 /* INNotificationData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
