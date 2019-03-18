@@ -15,6 +15,7 @@
 		CD4740952212212900DE2B05 /* String+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4740942212212900DE2B05 /* String+UIImage.swift */; };
 		CD47409A2212216A00DE2B05 /* INNotificationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4740992212216A00DE2B05 /* INNotificationStyle.swift */; };
 		CD47409C2212218100DE2B05 /* INNotificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD47409B2212218100DE2B05 /* INNotificationData.swift */; };
+		CDB0620E22404FFB00B8C0CB /* INNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0620D22404FFB00B8C0CB /* INNotificationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CD4740942212212900DE2B05 /* String+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UIImage.swift"; sourceTree = "<group>"; };
 		CD4740992212216A00DE2B05 /* INNotificationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INNotificationStyle.swift; sourceTree = "<group>"; };
 		CD47409B2212218100DE2B05 /* INNotificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INNotificationData.swift; sourceTree = "<group>"; };
+		CDB0620D22404FFB00B8C0CB /* INNotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INNotificationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		CD4740972212213E00DE2B05 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				CDB0620C22404FDE00B8C0CB /* Delegates */,
 				CD4740982212215500DE2B05 /* Data */,
 				CD47408E2212208E00DE2B05 /* INNotification.swift */,
 				CD474090221220BC00DE2B05 /* INNotifications.swift */,
@@ -95,6 +98,14 @@
 				CD47409B2212218100DE2B05 /* INNotificationData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		CDB0620C22404FDE00B8C0CB /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				CDB0620D22404FFB00B8C0CB /* INNotificationDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB0620E22404FFB00B8C0CB /* INNotificationDelegate.swift in Sources */,
 				CD47408F2212208E00DE2B05 /* INNotification.swift in Sources */,
 				CD474093221220F500DE2B05 /* INNotificationType.swift in Sources */,
 				CD4740952212212900DE2B05 /* String+UIImage.swift in Sources */,

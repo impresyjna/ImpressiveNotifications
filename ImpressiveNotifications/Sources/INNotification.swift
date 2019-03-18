@@ -197,13 +197,19 @@ class INNotification: UIView {
         })
     }
     
+    @objc internal func finishNotification() {
+        hideNotification()
+        data.parentDelegate?.impressiveNotificationFinished()
+    }
+    
     @objc internal func tappedNotification() {
         hideNotification()
         data.completionHandler?()
+        data.parentDelegate?.impressiveNotificationTapped()
     }
     
     public func showNotification() {
-        Timer.scheduledTimer(timeInterval: Double(data.delay), target: self, selector: #selector(hideNotification), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: Double(data.delay), target: self, selector: #selector(finishNotification), userInfo: nil, repeats: false)
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.68, initialSpringVelocity: 0.1, options: UIView.AnimationOptions(), animations: {
             self.frame.origin.y = self.safeAreaInsets.top + self.verticalMargin
         })
