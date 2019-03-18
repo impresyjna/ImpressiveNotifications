@@ -61,13 +61,16 @@ Example:
 INNotifications.show(type: .danger, data: INNotificationData(title: "Error", description: "Error notification"), customStyle: INNotificationStyle(cornerRadius: 10.0, backgroundColor: .black, titleColor: .red, descriptionColor: .yellow, imageSize: CGSize(width: 100.0, height: 100.0)))
 ```
 ### Custom data, time and completionHandler 
-``INNotificationData`` is the structure created to customize data on the notification, time and add completionHandler on tap 
+``INNotificationData`` is the structure created to customize data on the notification, time and add completionHandler on tap. 
+From version 0.9.0 is added parent delegate with methods for finish (when notification hides because of delay) and tap on the view. It is alternative to completionHandler on tap. 
+
 ```swift
 public struct INNotificationData {
     let title: String
     let description: String?
     let image: UIImage?
     let delay: TimeInterval
+    let parentDelegate: INNotificationDelegate?
     let completionHandler: (() -> Void)?
 }
 ```
@@ -79,6 +82,16 @@ INNotifications.show(type: .danger, data: INNotificationData(title: "Danger", de
             print("Hello")
     } 
 ))
+```
+
+### INNotificationDelegate
+``INNotificationDelegate`` is used to notify about finish or tap on notification. It has two functions: 
+```swift
+func impressiveNotificationTapped()
+```
+
+```swift
+func impressiveNotificationFinished()
 ```
 
 ### Custom view 
