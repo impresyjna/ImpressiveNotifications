@@ -122,6 +122,7 @@ class INNotification: UIView {
         
         switch type {
         case .custom(let view):
+            self.backgroundColor = .clear
             setupCustomView(view: view)
         case .danger, .success, .warning:
             setupNormalView()
