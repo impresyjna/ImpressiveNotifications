@@ -62,7 +62,7 @@ INNotifications.show(type: .danger, data: INNotificationData(title: "Error", des
 ```
 ### Custom data, time and completionHandler 
 ``INNotificationData`` is the structure created to customize data on the notification, time and add completionHandler on tap. 
-From version 0.9.0 is added parent delegate with methods for finish (when notification hides because of delay) and tap on the view. It is alternative to completionHandler on tap. 
+From version 0.8.0 is added parent delegate with methods for finish (when notification hides because of delay) and tap on the view. It is alternative to completionHandler on tap. 
 
 ```swift
 public struct INNotificationData {
