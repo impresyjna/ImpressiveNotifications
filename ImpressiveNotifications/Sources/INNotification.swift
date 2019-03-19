@@ -14,6 +14,7 @@ class INNotification: UIView {
     let descriptionLabel: UILabel = UILabel()
     let iconImageView: UIImageView = UIImageView()
     let titleDescriptionStackView: UIStackView = UIStackView()
+    var timer: Timer?
     
     var cornerRadius: CGFloat = 6.0
     var verticalMargin: CGFloat = 16.0
@@ -204,12 +205,16 @@ class INNotification: UIView {
     
     @objc internal func tappedNotification() {
         hideNotification()
+        
+        timer?.invalidate()
+        timer = nil
+        
         data.completionHandler?()
         data.parentDelegate?.impressiveNotificationTapped()
     }
     
     public func showNotification() {
-        Timer.scheduledTimer(timeInterval: Double(data.delay), target: self, selector: #selector(finishNotification), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: Double(data.delay), target: self, selector: #selector(finishNotification), userInfo: nil, repeats: false)
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.68, initialSpringVelocity: 0.1, options: UIView.AnimationOptions(), animations: {
             self.frame.origin.y = self.safeAreaInsets.top + self.verticalMargin
         })
