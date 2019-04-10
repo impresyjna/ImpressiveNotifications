@@ -8,7 +8,7 @@
 
 import UIKit
 
-class INNotification: UIView {
+public class INNotification: UIView {
     var data: INNotificationData
     let titleLabel: UILabel = UILabel()
     let descriptionLabel: UILabel = UILabel()
