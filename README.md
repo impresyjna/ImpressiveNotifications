@@ -1,14 +1,14 @@
 <img src="Resources/Banner.jpg" alt="Gallery Banner" align="center" />
 
-![Version](https://img.shields.io/badge/pod-0.10.0-blue.svg)
+![Version](https://img.shields.io/badge/pod-1.0.0-blue.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/badge/licence-GPL--3.0-informational.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
-![Swift](https://img.shields.io/badge/swift-4.2-orange.svg)
+![Swift](https://img.shields.io/badge/swift-5.0-orange.svg)
 
 ## Description
 
-**ImpressiveNotifications** are custom in-app notifications with 3 types of layouts. The notifications will animate in and out. They will hide when they are clicked on or with an automatic dismissal. It is also available to add custom behavior when notification is tapped. 
+**ImpressiveNotifications** are custom in-app notifications with 3 types of layouts. The notifications will animate in and out. They will hide when they are clicked on or with an automatic dismissal. It is also available to add custom behavior when notification is tapped.
 
 ## Installation
 
@@ -27,7 +27,7 @@ pod 'ImpressiveNotifications'
 ```
 
 ## Usage
-Call ``INNotifications.show`` with a type, data structure and customStyle if you want. Only type is necessary. 
+Call ``INNotifications.show`` with a type, data structure and customStyle if you want. Only type is necessary.
 
 Built-in notification types are :
 ```.success```
@@ -35,7 +35,7 @@ Built-in notification types are :
 ```.danger```
 ```.custom(UIView)```
 
-Example: 
+Example:
 
 ```swift
 INNotifications.show(type: .danger, data: INNotificationData(title: "Error", description: "Error notification"))
@@ -45,8 +45,8 @@ INNotifications.show(type: .danger, data: INNotificationData(title: "Error", des
 **ImpressiveNotifications** gives user possibility to customize view.
 
 ### Custom style
-``INNotificationStyle`` is the structure created to customize the appearance of notification. 
-```swift 
+``INNotificationStyle`` is the structure created to customize the appearance of notification.
+```swift
 public struct INNotificationStyle {
     let cornerRadius: CGFloat?
     let backgroundColor: UIColor?
@@ -55,14 +55,14 @@ public struct INNotificationStyle {
     let imageSize: CGSize?
 }
 ```
-Example: 
+Example:
 
 ```swift
 INNotifications.show(type: .danger, data: INNotificationData(title: "Error", description: "Error notification"), customStyle: INNotificationStyle(cornerRadius: 10.0, backgroundColor: .black, titleColor: .red, descriptionColor: .yellow, imageSize: CGSize(width: 100.0, height: 100.0)))
 ```
-### Custom data, time and completionHandler 
-``INNotificationData`` is the structure created to customize data on the notification, time and add completionHandler on tap. 
-From version 0.8.0 is added parent delegate with methods for finish (when notification hides because of delay) and tap on the view. It is alternative to completionHandler on tap. 
+### Custom data, time and completionHandler
+``INNotificationData`` is the structure created to customize data on the notification, time and add completionHandler on tap.
+From version 0.8.0 is added parent delegate with methods for finish (when notification hides because of delay) and tap on the view. It is alternative to completionHandler on tap.
 
 ```swift
 public struct INNotificationData {
@@ -75,17 +75,19 @@ public struct INNotificationData {
 }
 ```
 
-Example: 
+Example:
 
 ```swift
 INNotifications.show(type: .danger, data: INNotificationData(title: "Danger", description: "Danger notification", image: UIImage(named: "danger"), delay: 20.0, completionHandler: {
             print("Hello")
-    } 
+    }
 ))
 ```
 
+If you want to make constant notification(without hiding timer), in INNotificationData delay should be nil. 
+
 ### INNotificationDelegate
-``INNotificationDelegate`` is used to notify about finish or tap on notification. It has two functions: 
+``INNotificationDelegate`` is used to notify about finish or tap on notification. It has two functions:
 ```swift
 func impressiveNotificationTapped()
 ```
@@ -94,10 +96,10 @@ func impressiveNotificationTapped()
 func impressiveNotificationFinished()
 ```
 
-### Custom view 
-It is also possible to add custom view created for example in storyboard. 
+### Custom view
+It is also possible to add custom view created for example in storyboard.
 
-Example: 
+Example:
 
 ```swift
 let storyboard = UIStoryboard(name: "Main", bundle: nil)

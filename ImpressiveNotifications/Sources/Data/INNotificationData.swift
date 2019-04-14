@@ -12,11 +12,11 @@ public struct INNotificationData {
     let title: String
     let description: String?
     let image: UIImage?
-    let delay: TimeInterval
+    let delay: TimeInterval?
     let completionHandler: (() -> Void)?
     let parentDelegate: INNotificationDelegate?
     
-    public init(title: String = "", description: String? = nil, image: UIImage? = nil, delay: TimeInterval = 10.0, parentDelegate: INNotificationDelegate? = nil, completionHandler: (() -> Void)? = nil) {
+    public init(title: String = "", description: String? = nil, image: UIImage? = nil, delay: TimeInterval? = 10.0, parentDelegate: INNotificationDelegate? = nil, completionHandler: (() -> Void)? = nil) {
         self.title = title
         self.description = description
         self.image = image

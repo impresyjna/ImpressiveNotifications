@@ -214,7 +214,9 @@ public class INNotification: UIView {
     }
     
     public func showNotification() {
-        timer = Timer.scheduledTimer(timeInterval: Double(data.delay), target: self, selector: #selector(finishNotification), userInfo: nil, repeats: false)
+        if let delay = data.delay {
+            timer = Timer.scheduledTimer(timeInterval: Double(delay), target: self, selector: #selector(finishNotification), userInfo: nil, repeats: false)
+        }
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.68, initialSpringVelocity: 0.1, options: UIView.AnimationOptions(), animations: {
             self.frame.origin.y = self.safeAreaInsets.top + self.verticalMargin
         })
