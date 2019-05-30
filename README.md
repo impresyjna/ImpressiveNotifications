@@ -72,6 +72,7 @@ public struct INNotificationData {
     let delay: TimeInterval?
     let parentDelegate: INNotificationDelegate?
     let completionHandler: (() -> Void)?
+    let hideOnTap: Bool
 }
 ```
 
@@ -85,6 +86,7 @@ INNotifications.show(type: .danger, data: INNotificationData(title: "Danger", de
 ```
 
 If you want to make constant notification(without hiding timer), in INNotificationData delay should be nil. 
+If you want to block hiding on tap just set hideOnTap in this struct as false. 
 
 ### INNotificationDelegate
 ``INNotificationDelegate`` is used to notify about finish or tap on notification. It has two functions:
