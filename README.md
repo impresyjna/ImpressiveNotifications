@@ -69,7 +69,7 @@ public struct INNotificationData {
     let title: String
     let description: String?
     let image: UIImage?
-    let delay: TimeInterval
+    let delay: TimeInterval?
     let parentDelegate: INNotificationDelegate?
     let completionHandler: (() -> Void)?
 }
