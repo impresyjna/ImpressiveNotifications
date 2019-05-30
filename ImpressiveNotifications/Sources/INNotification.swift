@@ -204,6 +204,10 @@ public class INNotification: UIView {
     }
     
     @objc internal func tappedNotification() {
+        guard data.hideOnTap else { 
+            return 
+        }
+        
         hideNotification()
         
         timer?.invalidate()
