@@ -36,4 +36,15 @@ public class INNotifications {
         NSLayoutConstraint.activate(constraints)
         notificationView.showNotification()
     }
+    
+    static public func hide() {
+        guard let window = UIApplication.shared.keyWindow else {
+            print("Failed to hide. No window available")
+            return
+        }
+        
+        if let notification =  window.subviews.first(where: { $0 is INNotification }) as? INNotification {
+            notification.hide()
+        }
+    }
 }
