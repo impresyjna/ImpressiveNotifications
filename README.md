@@ -1,6 +1,6 @@
 <img src="Resources/Banner.jpg" alt="Gallery Banner" align="center" />
 
-![Version](https://img.shields.io/badge/pod-1.0.1-blue.svg)
+![Version](https://img.shields.io/badge/pod-1.0.2-blue.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/badge/licence-GPL--3.0-informational.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
@@ -86,7 +86,7 @@ INNotifications.show(type: .danger, data: INNotificationData(title: "Danger", de
 ```
 
 If you want to make constant notification(without hiding timer), in INNotificationData delay should be nil. 
-If you want to block hiding on tap just set hideOnTap in this struct as false. 
+If you want to block hiding on tap just set hideOnTap in this struct as false. To hide the notification is created hide() method. 
 
 ### INNotificationDelegate
 ``INNotificationDelegate`` is used to notify about finish or tap on notification. It has two functions:
