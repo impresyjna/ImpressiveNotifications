@@ -204,6 +204,9 @@ public class INNotification: UIView {
     }
     
     @objc internal func tappedNotification() {
+        data.completionHandler?()
+        data.parentDelegate?.impressiveNotificationTapped()
+        
         guard data.hideOnTap else { 
             return 
         }
@@ -212,9 +215,6 @@ public class INNotification: UIView {
         
         timer?.invalidate()
         timer = nil
-        
-        data.completionHandler?()
-        data.parentDelegate?.impressiveNotificationTapped()
     }
     
     public func hide() {
