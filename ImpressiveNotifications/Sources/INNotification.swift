@@ -217,6 +217,10 @@ public class INNotification: UIView {
         data.parentDelegate?.impressiveNotificationTapped()
     }
     
+    public func hide() {
+        hideNotification()
+    }
+    
     public func showNotification() {
         if let delay = data.delay {
             timer = Timer.scheduledTimer(timeInterval: Double(delay), target: self, selector: #selector(finishNotification), userInfo: nil, repeats: false)
