@@ -218,7 +218,10 @@ public class INNotification: UIView {
     }
     
     public func hide() {
-        hideNotification()
+        timer?.invalidate()
+        timer = nil
+        
+        finishNotification()
     }
     
     public func showNotification() {
