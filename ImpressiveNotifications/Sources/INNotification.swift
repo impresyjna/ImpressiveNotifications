@@ -15,6 +15,7 @@ public class INNotification: UIView {
     let iconImageView: UIImageView = UIImageView()
     let titleDescriptionStackView: UIStackView = UIStackView()
     var timer: Timer?
+    let position: INNotificationPosition
     
     var cornerRadius: CGFloat = 6.0
     var verticalMargin: CGFloat = 16.0
@@ -33,10 +34,11 @@ public class INNotification: UIView {
         fatalError("Not implemented.")
     }
     
-    public init(with data: INNotificationData = INNotificationData(), type: INNotificationType, customStyle: INNotificationStyle? = nil) {
+    public init(with data: INNotificationData = INNotificationData(), type: INNotificationType, customStyle: INNotificationStyle? = nil, position: INNotificationPosition) {
         self.data = data
         self.type = type
         self.customStyle = customStyle
+        self.position = position
         
         super.init(frame: CGRect.zero)
         
@@ -189,7 +191,13 @@ public class INNotification: UIView {
     }
     
     @objc internal func hideNotification() {
-        let translate = CGAffineTransform(translationX: 0, y: (-self.frame.height - 100))
+        let translate: CGAffineTransform
+        switch position {
+        case .top:
+            translate = CGAffineTransform(translationX: 0, y: (-self.frame.height - 100))
+        case .bottom:
+            translate = CGAffineTransform(translationX: 0, y: self.frame.height + 100)
+        }
         
         UIView.animate(withDuration: 0.3, animations: {
             self.transform = translate
@@ -228,8 +236,17 @@ public class INNotification: UIView {
         if let delay = data.delay {
             timer = Timer.scheduledTimer(timeInterval: Double(delay), target: self, selector: #selector(finishNotification), userInfo: nil, repeats: false)
         }
+        
+        let newY: CGFloat
+        switch position {
+        case .top:
+            newY = self.safeAreaInsets.top + self.verticalMargin
+        case .bottom:
+            newY = self.safeAreaInsets.bottom - self.verticalMargin - self.frame.height
+        }
+        
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.68, initialSpringVelocity: 0.1, options: UIView.AnimationOptions(), animations: {
-            self.frame.origin.y = self.safeAreaInsets.top + self.verticalMargin
+            self.frame.origin.y = newY
         })
     }
 }
