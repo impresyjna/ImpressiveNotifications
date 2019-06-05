@@ -11,7 +11,7 @@ import UIKit
 public class INNotifications {
     
     static public func show(type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil, position: INNotificationPosition = .top) {
-        let notificationView = INNotification(with: data ?? INNotificationData(), type: type, customStyle: customStyle)
+        let notificationView = INNotification(with: data ?? INNotificationData(), type: type, customStyle: customStyle, position: position)
         
         guard let window = UIApplication.shared.keyWindow else {
             print("Failed to show. No window available")
@@ -30,7 +30,7 @@ public class INNotifications {
             case .top:
                 constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: window, attribute: .topMargin, multiplier: 1.0, constant: 16.0))
             case .bottom:
-            constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: window, attribute: .bottomMargin, multiplier: 1.0, constant: 16.0))
+            constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: window, attribute: .bottomMargin, multiplier: 1.0, constant: -16.0))
         }
         
         NSLayoutConstraint.activate(constraints)
