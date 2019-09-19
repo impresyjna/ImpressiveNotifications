@@ -7,30 +7,38 @@
 //
 
 import UIKit
+import CarPlay
 
 public class INNotifications {
     
     static public func show(type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil, position: INNotificationPosition = .top) {
         let notificationView = INNotification(with: data ?? INNotificationData(), type: type, customStyle: customStyle, position: position)
         
-        guard let window = UIApplication.shared.keyWindow else {
+        let windowView: UIWindow?
+        if #available(iOS 12.0, *) {
+            windowView = UIApplication.shared.windows.first(where: { !($0 is CPWindow) })
+        } else {
+            windowView = UIApplication.shared.keyWindow
+        }
+        
+        guard let unwrappedWindow = windowView else {
             print("Failed to show. No window available")
             return
         }
         
         notificationView.translatesAutoresizingMaskIntoConstraints = false
-        window.addSubview(notificationView)
+        unwrappedWindow.addSubview(notificationView)
         
         var constraints = [
-            NSLayoutConstraint(item: notificationView , attribute: .leading, relatedBy: .equal, toItem: window, attribute: .leadingMargin, multiplier: 1.0, constant: 16.0),
-            NSLayoutConstraint(item: notificationView , attribute: .trailing, relatedBy: .equal, toItem: window, attribute: .trailingMargin, multiplier: 1.0, constant: -16.0)
+            NSLayoutConstraint(item: notificationView , attribute: .leading, relatedBy: .equal, toItem: unwrappedWindow, attribute: .leadingMargin, multiplier: 1.0, constant: 16.0),
+            NSLayoutConstraint(item: notificationView , attribute: .trailing, relatedBy: .equal, toItem: unwrappedWindow, attribute: .trailingMargin, multiplier: 1.0, constant: -16.0)
         ]
         
             switch position {
             case .top:
-                constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: window, attribute: .topMargin, multiplier: 1.0, constant: 16.0))
+                constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: unwrappedWindow, attribute: .topMargin, multiplier: 1.0, constant: 16.0))
             case .bottom:
-            constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: window, attribute: .bottomMargin, multiplier: 1.0, constant: -16.0))
+            constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: unwrappedWindow, attribute: .bottomMargin, multiplier: 1.0, constant: -16.0))
         }
         
         NSLayoutConstraint.activate(constraints)
@@ -38,12 +46,19 @@ public class INNotifications {
     }
     
     static public func hide() {
-        guard let window = UIApplication.shared.keyWindow else {
+        let windowView: UIWindow?
+        if #available(iOS 12.0, *) {
+            windowView = UIApplication.shared.windows.first(where: { !($0 is CPWindow) })
+        } else {
+            windowView = UIApplication.shared.keyWindow
+        }
+        
+        guard let unwrappedWindow = windowView else {
             print("Failed to hide. No window available")
             return
         }
-        
-        if let notification =  window.subviews.first(where: { $0 is INNotification }) as? INNotification {
+
+        if let notification =  unwrappedWindow.subviews.first(where: { $0 is INNotification }) as? INNotification {
             notification.hide()
         }
     }
