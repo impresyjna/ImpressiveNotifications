@@ -4,7 +4,7 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/badge/licence-GPL--3.0-informational.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
-![Swift](https://img.shields.io/badge/swift-5.0-orange.svg)
+![Swift](https://img.shields.io/badge/swift-5.1-orange.svg)
 
 ## Description
 
@@ -53,6 +53,8 @@ public struct INNotificationStyle {
     let titleColor: UIColor?
     let descriptionColor: UIColor?
     let imageSize: CGSize?
+    let verticalMargin: CGFloat // Vertical margin for whole notification
+    let horizontalMargin: CGFloat // Horizontal margin for whole notification (trailing and leading) 
 }
 ```
 Example:
