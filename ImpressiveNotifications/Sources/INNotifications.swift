@@ -33,15 +33,15 @@ public class INNotifications {
         let horizontalMargin = customStyle?.horizontalMargin ?? 16.0
         
         var constraints = [
-            NSLayoutConstraint(item: notificationView , attribute: .leading, relatedBy: .equal, toItem: unwrappedWindow, attribute: .leadingMargin, multiplier: 1.0, constant: verticalMargin),
-            NSLayoutConstraint(item: notificationView , attribute: .trailing, relatedBy: .equal, toItem: unwrappedWindow, attribute: .trailingMargin, multiplier: 1.0, constant: -1*verticalMargin)
+            NSLayoutConstraint(item: notificationView , attribute: .leading, relatedBy: .equal, toItem: unwrappedWindow, attribute: .leadingMargin, multiplier: 1.0, constant: horizontalMargin),
+            NSLayoutConstraint(item: notificationView , attribute: .trailing, relatedBy: .equal, toItem: unwrappedWindow, attribute: .trailingMargin, multiplier: 1.0, constant: -1*horizontalMargin)
         ]
         
             switch position {
             case .top:
-                constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: unwrappedWindow, attribute: .topMargin, multiplier: 1.0, constant: horizontalMargin))
+                constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: unwrappedWindow, attribute: .topMargin, multiplier: 1.0, constant: verticalMargin))
             case .bottom:
-            constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: unwrappedWindow, attribute: .bottomMargin, multiplier: 1.0, constant: -1*horizontalMargin))
+            constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: unwrappedWindow, attribute: .bottomMargin, multiplier: 1.0, constant: -1*verticalMargin))
         }
         
         NSLayoutConstraint.activate(constraints)
