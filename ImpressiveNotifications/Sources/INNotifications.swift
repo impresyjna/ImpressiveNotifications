@@ -29,16 +29,19 @@ public class INNotifications {
         notificationView.translatesAutoresizingMaskIntoConstraints = false
         unwrappedWindow.addSubview(notificationView)
         
+        let verticalMargin = customStyle?.verticalMargin ?? 16.0
+        let horizontalMargin = customStyle?.horizontalMargin ?? 16.0
+        
         var constraints = [
-            NSLayoutConstraint(item: notificationView , attribute: .leading, relatedBy: .equal, toItem: unwrappedWindow, attribute: .leadingMargin, multiplier: 1.0, constant: 16.0),
-            NSLayoutConstraint(item: notificationView , attribute: .trailing, relatedBy: .equal, toItem: unwrappedWindow, attribute: .trailingMargin, multiplier: 1.0, constant: -16.0)
+            NSLayoutConstraint(item: notificationView , attribute: .leading, relatedBy: .equal, toItem: unwrappedWindow, attribute: .leadingMargin, multiplier: 1.0, constant: verticalMargin),
+            NSLayoutConstraint(item: notificationView , attribute: .trailing, relatedBy: .equal, toItem: unwrappedWindow, attribute: .trailingMargin, multiplier: 1.0, constant: -1*verticalMargin)
         ]
         
             switch position {
             case .top:
-                constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: unwrappedWindow, attribute: .topMargin, multiplier: 1.0, constant: 16.0))
+                constraints.append(NSLayoutConstraint(item: notificationView , attribute: .top, relatedBy: .equal, toItem: unwrappedWindow, attribute: .topMargin, multiplier: 1.0, constant: horizontalMargin))
             case .bottom:
-            constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: unwrappedWindow, attribute: .bottomMargin, multiplier: 1.0, constant: -16.0))
+            constraints.append(NSLayoutConstraint(item: notificationView , attribute: .bottom, relatedBy: .equal, toItem: unwrappedWindow, attribute: .bottomMargin, multiplier: 1.0, constant: -1*horizontalMargin))
         }
         
         NSLayoutConstraint.activate(constraints)
