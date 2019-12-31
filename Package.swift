@@ -1,15 +1,10 @@
-//
-//  Package.swift
-//  ImpressiveNotifications
-//
-//  Created by Artyom Rudakov on 31.12.2019.
-//  Copyright © 2019 Artyom Rudakov. All rights reserved.
-//
+// swift-tools-version:5.0
 
 import PackageDescription
 
 let package = Package(
     name: "ImpressiveNotifications",
+    platforms: [.iOS("11.0")],
     products: [
         .library(name: "ImpressiveNotifications", targets: ["ImpressiveNotifications"]),
     ],
