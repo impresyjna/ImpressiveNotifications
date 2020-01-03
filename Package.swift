@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "ImpressiveNotifications",
-    platforms: [.iOS("11.0")],
+    platforms: [.iOS(.v11)],
     products: [
         .library(name: "ImpressiveNotifications", targets: ["ImpressiveNotifications"]),
     ],
