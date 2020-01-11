@@ -7,21 +7,13 @@
 //
 
 import UIKit
-import CarPlay
 
 public class INNotifications {
     
     static public func show(type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil, position: INNotificationPosition = .top) {
         let notificationView = INNotification(with: data ?? INNotificationData(), type: type, customStyle: customStyle, position: position)
         
-        let windowView: UIWindow?
-        if #available(iOS 12.0, *) {
-            windowView = UIApplication.shared.windows.first(where: { !($0 is CPWindow) })
-        } else {
-            windowView = UIApplication.shared.keyWindow
-        }
-        
-        guard let unwrappedWindow = windowView else {
+        guard let unwrappedWindow = keyWindowOfAnActiveScene else {
             print("Failed to show. No window available")
             return
         }
@@ -49,14 +41,7 @@ public class INNotifications {
     }
     
     static public func hide() {
-        let windowView: UIWindow?
-        if #available(iOS 12.0, *) {
-            windowView = UIApplication.shared.windows.first(where: { !($0 is CPWindow) })
-        } else {
-            windowView = UIApplication.shared.keyWindow
-        }
-        
-        guard let unwrappedWindow = windowView else {
+        guard let unwrappedWindow = keyWindowOfAnActiveScene else {
             print("Failed to hide. No window available")
             return
         }
@@ -65,4 +50,17 @@ public class INNotifications {
             notification.hide()
         }
     }
+    
+    private static var keyWindowOfAnActiveScene: UIWindow? {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.connectedScenes
+                .filter { $0.activationState == .foregroundActive }
+                .compactMap { $0 as? UIWindowScene }
+                .first?.windows
+                .filter { $0.isKeyWindow }.first
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
+    
 }
