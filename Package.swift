@@ -6,10 +6,16 @@ let package = Package(
     name: "ImpressiveNotifications",
     platforms: [.iOS(.v11)],
     products: [
-        .library(name: "ImpressiveNotifications", targets: ["ImpressiveNotifications"]),
+        .library(
+            name: "ImpressiveNotifications",
+            targets: ["ImpressiveNotifications"]
+        ),
     ],
     targets: [
-        .target(name: "ImpressiveNotifications", dependencies: [], path: "ImpressiveNotifications/Sources")
+        .target(
+            name: "ImpressiveNotifications",
+            path: "ImpressiveNotifications/Sources"
+        )
     ]
 )
 
