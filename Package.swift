@@ -9,7 +9,7 @@ let package = Package(
         .library(
             name: "ImpressiveNotifications",
             targets: ["ImpressiveNotifications"]
-        ),
+        )
     ],
     targets: [
         .target(
