@@ -62,7 +62,7 @@ public struct INNotificationStyle {
 Example:
 
 ```swift
-INNotifications.show(type: .danger, data: INNotificationData(title: "Error", description: "Error notification"), customStyle: INNotificationStyle(cornerRadius: 10.0, backgroundColor: .black, titleColor: .red, descriptionColor: .yellow, imageSize: CGSize(width: 100.0, height: 100.0)))
+INNotifications.show(in: UIApplication.shared.keyWindow, type: .danger, data: INNotificationData(title: "Error", description: "Error notification"), customStyle: INNotificationStyle(cornerRadius: 10.0, backgroundColor: .black, titleColor: .red, descriptionColor: .yellow, imageSize: CGSize(width: 100.0, height: 100.0)))
 ```
 ### Custom data, time and completionHandler
 ``INNotificationData`` is the structure created to customize data on the notification, time and add completionHandler on tap.
@@ -83,7 +83,7 @@ public struct INNotificationData {
 Example:
 
 ```swift
-INNotifications.show(type: .danger, data: INNotificationData(title: "Danger", description: "Danger notification", image: UIImage(named: "danger"), delay: 20.0, completionHandler: {
+INNotifications.show(in: UIApplication.shared.keyWindow, type: .danger, data: INNotificationData(title: "Danger", description: "Danger notification", image: UIImage(named: "danger"), delay: 20.0, completionHandler: {
             print("Hello")
     }
 ))
@@ -111,7 +111,7 @@ Example:
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
 let vc = storyboard.instantiateViewController(withIdentifier: "CustomViewController")
 
-INNotifications.show(type: .custom(vc.view))
+INNotifications.show(in: UIApplication.shared.keyWindow, type: .custom(vc.view))
 ```
 
 ### Position
