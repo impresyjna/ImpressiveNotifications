@@ -1,6 +1,6 @@
 <img src="Resources/Banner.jpg" alt="Gallery Banner" align="center" />
 
-![Version](https://img.shields.io/badge/pod-1.0.8-blue.svg)
+![Version](https://img.shields.io/badge/pod-1.0.9-blue.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/badge/licence-GPL--3.0-informational.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
@@ -29,7 +29,7 @@ pod 'ImpressiveNotifications'
 **ImpressiveNotifications** is also available through Swift Package Manager. The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler. 
 
 ## Usage
-Call ``INNotifications.show`` with a type, data structure and customStyle if you want. Only type is necessary.
+Call ``INNotifications.show`` with a window where it should be shown, type, data structure and customStyle if you want. Only type is necessary.
 
 Built-in notification types are :
 ```.success```
@@ -40,7 +40,7 @@ Built-in notification types are :
 Example:
 
 ```swift
-INNotifications.show(type: .danger, data: INNotificationData(title: "Error", description: "Error notification"))
+INNotifications.show(in: UIApplication.shared.keyWindow, type: .danger, data: INNotificationData(title: "Error", description: "Error notification"))
 ```
 
 ## Configuration
@@ -120,5 +120,5 @@ INNotifications.show(type: .custom(vc.view))
 Example:
 
 ```swift
-INNotifications.show(type: .danger, data: INNotificationData(title: "Error", description: "Error notification"), position: .bottom)
+INNotifications.show(in: UIApplication.shared.keyWindow, type: .danger, data: INNotificationData(title: "Error", description: "Error notification"), position: .bottom)
 ```
