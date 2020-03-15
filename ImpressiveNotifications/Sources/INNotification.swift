@@ -176,11 +176,26 @@ public class INNotification: UIView {
     private func setupGestures() {
         NotificationCenter.default.addObserver(self, selector: #selector(rotateView), name: UIDevice.orientationDidChangeNotification, object: nil)
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedNotification))
-        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(hideNotification))
-        swipeRecognizer.direction = .up
-        
         addGestureRecognizer(tapRecognizer)
-        addGestureRecognizer(swipeRecognizer)
+        
+        switch position {
+        case .top:
+            let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(hideUp))
+            swipeRecognizer.direction = .up
+            addGestureRecognizer(swipeRecognizer)
+        case .bottom:
+            let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(hideDown))
+            swipeRecognizer.direction = .down
+            addGestureRecognizer(swipeRecognizer)
+        }
+        
+        let leftSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(hideLeft))
+        leftSwipeRecognizer.direction = .left
+        addGestureRecognizer(leftSwipeRecognizer)
+        
+        let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(hideRight))
+        rightSwipeRecognizer.direction = .right
+        addGestureRecognizer(rightSwipeRecognizer)
     }
     
     @objc internal func rotateView() {
@@ -190,13 +205,33 @@ public class INNotification: UIView {
         }
     }
     
-    @objc internal func hideNotification() {
+    @objc func hideUp() {
+        hideNotification(direction: .top)
+    }
+    
+    @objc func hideDown() {
+        hideNotification(direction: .bottom)
+    }
+    
+    @objc func hideRight() {
+        hideNotification(direction: .right)
+    }
+    
+    @objc func hideLeft() {
+        hideNotification(direction: .left)
+    }
+    
+    internal func hideNotification(direction: INNotificationHideDirection) {
         let translate: CGAffineTransform
-        switch position {
+        switch direction {
         case .top:
             translate = CGAffineTransform(translationX: 0, y: (-self.frame.height - 100))
         case .bottom:
             translate = CGAffineTransform(translationX: 0, y: self.frame.height + 100)
+        case .left:
+            translate = CGAffineTransform(translationX: (-self.frame.width - 100), y: 0)
+        case .right:
+            translate = CGAffineTransform(translationX: self.frame.width + 100, y: 0)
         }
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -207,7 +242,7 @@ public class INNotification: UIView {
     }
     
     @objc internal func finishNotification() {
-        hideNotification()
+        hideNotification(direction: position.hideDirection)
         data.parentDelegate?.impressiveNotificationFinished()
     }
     
@@ -219,7 +254,7 @@ public class INNotification: UIView {
             return 
         }
         
-        hideNotification()
+        hideNotification(direction: position.hideDirection)
         
         timer?.invalidate()
         timer = nil

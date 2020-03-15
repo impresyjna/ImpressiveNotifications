@@ -11,4 +11,20 @@ import UIKit
 public enum INNotificationPosition {
     case top
     case bottom
+    
+    var hideDirection: INNotificationHideDirection {
+        switch self {
+        case .top:
+            return .top
+        case .bottom:
+            return .bottom
+        }
+    }
+}
+
+public enum INNotificationHideDirection {
+    case top
+    case bottom
+    case left
+    case right
 }
