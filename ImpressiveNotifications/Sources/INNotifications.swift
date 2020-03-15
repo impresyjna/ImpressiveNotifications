@@ -7,19 +7,11 @@
 //
 
 import UIKit
-import CarPlay
 
 public class INNotifications {
     
-    static public func show(type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil, position: INNotificationPosition = .top) {
+    static public func show(in windowView: UIWindow?, type: INNotificationType, data: INNotificationData? = nil, customStyle: INNotificationStyle? = nil, position: INNotificationPosition = .top) {
         let notificationView = INNotification(with: data ?? INNotificationData(), type: type, customStyle: customStyle, position: position)
-        
-        let windowView: UIWindow?
-        if #available(iOS 12.0, *) {
-            windowView = UIApplication.shared.windows.first(where: { !($0 is CPWindow) })
-        } else {
-            windowView = UIApplication.shared.keyWindow
-        }
         
         guard let unwrappedWindow = windowView else {
             print("Failed to show. No window available")
@@ -48,14 +40,7 @@ public class INNotifications {
         notificationView.showNotification()
     }
     
-    static public func hide() {
-        let windowView: UIWindow?
-        if #available(iOS 12.0, *) {
-            windowView = UIApplication.shared.windows.first(where: { !($0 is CPWindow) })
-        } else {
-            windowView = UIApplication.shared.keyWindow
-        }
-        
+    static public func hide(in windowView: UIWindow?) {
         guard let unwrappedWindow = windowView else {
             print("Failed to hide. No window available")
             return
