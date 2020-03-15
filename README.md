@@ -26,6 +26,8 @@ it, simply add the following line to your Podfile:
 pod 'ImpressiveNotifications'
 ```
 
+**ImpressiveNotifications** is also available through Swift Package Manager. The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler. 
+
 ## Usage
 Call ``INNotifications.show`` with a type, data structure and customStyle if you want. Only type is necessary.
 
