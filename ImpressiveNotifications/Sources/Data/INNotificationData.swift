@@ -9,13 +9,13 @@
 import UIKit
 
 public struct INNotificationData {
-    let title: String
-    let description: String?
-    let image: UIImage?
-    let delay: TimeInterval?
-    let completionHandler: (() -> Void)?
-    let parentDelegate: INNotificationDelegate?
-    let hideOnTap: Bool
+    public let title: String
+    public let description: String?
+    public let image: UIImage?
+    public let delay: TimeInterval?
+    public let completionHandler: (() -> Void)?
+    public let parentDelegate: INNotificationDelegate?
+    public let hideOnTap: Bool
     
     public init(title: String = "", description: String? = nil, image: UIImage? = nil, delay: TimeInterval? = 10.0, hideOnTap: Bool = true, parentDelegate: INNotificationDelegate? = nil, completionHandler: (() -> Void)? = nil) {
         self.title = title
